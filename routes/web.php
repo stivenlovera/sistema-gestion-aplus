@@ -35,10 +35,15 @@ Route::middleware('auth')->prefix('cliente')->group(function () {
 Route::middleware('auth')->prefix('cotizacion')->group(function () {
     Route::get('/', 'proyecto\cotizacionController@index')->name('cotizacion');
     Route::get('/lista', 'proyecto\cotizacionController@datatable')->name('cotizacion.lista');
+    Route::get('/create', 'proyecto\cotizacionController@create')->name('cotizacion.create');
     Route::post('/store', 'proyecto\cotizacionController@store')->name('cotizacion.store');
     Route::get('/edit/{id}', 'proyecto\cotizacionController@edit')->name('cotizacion.edit');
     Route::put('/update/{id}', 'proyecto\cotizacionController@update')->name('cotizacion.lista');
     Route::delete('/delete/{id}', 'proyecto\cotizacionController@destroy')->name('cotizacion.lista');
+    /*select */
+    Route::post('/tipo-servicio', 'proyecto\cotizacionController@tipo_servicio')->name('cotizacion.servicio');
+    Route::post('/cliente', 'proyecto\cotizacionController@cliente')->name('cotizacion.cliente');
+    Route::post('/contacto', 'proyecto\cotizacionController@contacto')->name('cotizacion.contacto');
 });
 Route::middleware('auth')->prefix('proyecto')->group(function () {
     Route::get('/', 'proyecto\proyectoController@index')->name('proyecto');

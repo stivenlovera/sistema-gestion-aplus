@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components\components\components\list\transferencia;
+namespace App\View\Components\contacto;
 
 use Illuminate\View\Component;
 
-class edit-deliver extends Component
+class contactoModal extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class edit-deliver extends Component
      */
     public function render()
     {
-        return view('components.components.components.list.transferencia.edit-deliver');
+        return view('components.contacto.contacto-modal');
     }
 }

@@ -99,10 +99,22 @@ CREATE TABLE
     cotizacion(
         id int AUTO_INCREMENT primary key,
         servicio_id int NULL,
+        contacto_id int NULL,
         cliente_id int NULL,
         nombre VARCHAR(350) NULL,
         descripcion VARCHAR(350) NULL,
-        precio_total DECIMAL (10, 2) NOT NULL
+        precio_total DECIMAL (10, 2) NOT NULL,
+        costo_total DECIMAL (10, 2) NOT NULL,
+        utilidades DECIMAL (10, 2) NOT NULL,
+        porcentaje_a DECIMAL (10, 2) NOT NULL,
+        porcentaje_b DECIMAL (10, 2) NOT NULL,
+        porcentaje_c DECIMAL (10, 2) NOT NULL,
+        #uso de porcentaje
+        uso_porcentaje_a DECIMAL (10, 2) NOT NULL,
+        uso_porcentaje_b DECIMAL (10, 2) NOT NULL,
+        uso_porcentaje_c DECIMAL (10, 2) NOT NULL,
+        fecha_registro datetime NOT NULL,
+        estado_cotizacion VARCHAR(350) NOT NULL
     );
 
 DROP TABLE IF EXISTS material_cotizacion;
@@ -110,9 +122,14 @@ DROP TABLE IF EXISTS material_cotizacion;
 CREATE TABLE
     material_cotizacion(
         id int AUTO_INCREMENT primary key,
-        material_id int NULL,
+        item int(11) NULL,
+        codigo VARCHAR(350) NULL,
+        descripcion VARCHAR(350) NULL,
         cotizacion_id int NULL,
         cantidad int NULL,
+        utilidad DECIMAL (10, 2) NOT NULL,
+        precio_unitario_compra DECIMAL (10, 2) NOT NULL,
+        precio_total_compra DECIMAL (10, 2) NOT NULL,
         precio_unitario DECIMAL (10, 2) NOT NULL,
         precio_total DECIMAL (10, 2) NOT NULL
     );
@@ -162,6 +179,15 @@ CREATE TABLE
         fecha_fin DATETIME NOT NULL
     );
 
+DROP TABLE IF EXISTS porcentajes;
+
+CREATE TABLE
+    porcentajes(
+        id int AUTO_INCREMENT primary key,
+        nombre VARCHAR(350) NULL,
+        porcentaje DECIMAL (10, 2) NOT NULL
+    );
+
 #insert inicial
 INSERT INTO
     `persona`(
@@ -208,4 +234,12 @@ INSERT INTO `rol`( `nombre`) VALUES ('Invitado');
 
 INSERT INTO `servicio`(`nombre`) VALUES ('instalacion de camaras');
 
-INSERT INTO `servicio`(`nombre`) VALUES ('desarrollo web') 
+INSERT INTO `servicio`(`nombre`) VALUES ('desarrollo web');
+
+/*porcentajes*/
+
+INSERT INTO `porcentajes`(`nombre`,`porcentaje`) VALUES ('a','13');
+
+INSERT INTO `porcentajes`(`nombre`,`porcentaje`) VALUES ('b','3');
+
+INSERT INTO `porcentajes`(`nombre`,`porcentaje`) VALUES ('c','1.5');

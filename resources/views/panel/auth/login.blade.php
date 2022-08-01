@@ -28,7 +28,7 @@
 
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="#" class="h1"><b>Example</b>LTE</a>
+                <a href="#" class="h1"><b>A+</b> Security</a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Regístrese para iniciar su sesión</p>
@@ -56,13 +56,13 @@
                             <div class="icheck-primary">
                                 <input type="checkbox" id="remember">
                                 <label for="remember">
-                                    Remember Me
+                                    Recordar session
                                 </label>
                             </div>
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block">Iniciar</button>
                         </div>
                         <!-- /.col -->
                     </div>

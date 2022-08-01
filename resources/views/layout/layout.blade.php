@@ -75,6 +75,8 @@
             }
         });
     </script>
+    {{-- CONTROL DE ERRORS AJAX --}}
+    <script src="{{ asset('panel/errors_ajax.js') }}"></script>
 </body>
 
 </html>

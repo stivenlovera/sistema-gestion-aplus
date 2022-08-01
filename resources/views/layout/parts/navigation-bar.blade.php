@@ -3,17 +3,17 @@
     <a href="index3.html" class="brand-link">
         <img src="{{ asset('img/AdminLTELogo.png') }}" alt="Logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
-        <span class="brand-text font-weight-light"> A plus</span>
+        <span class="brand-text font-weight-light"> Security</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
+            <div class="image mt-3">
                 <img src="{{ asset('img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
-            <div class="info">
+            <div class="info mt-3">
                 <a href="#" class="d-block"> {{ auth()->user()->persona->nombre }}
                     {{ auth()->user()->persona->apellido }}</a>
             </div>

@@ -42,21 +42,20 @@
                                 <button class="btn btn-pill btn-warning d-block" style="padding: 0.2rem 0.5rem"
                                     type="button" id="limpiar"><i class="fas fa-trash"></i> otros</button>
                                 <button class="btn btn-pill btn-primary d-block" style="padding: 0.2rem 0.5rem;"
-                                    type="button" id="new"><i class="fa fa-folder-plus"></i> Nueva
+                                    type="button" id="nueva_cotizacion"><i class="fa fa-folder-plus"></i> Nueva
                                     Cotizacion</button>
                             </div>
-
                             <br>
                             <table id="datatable_cotizacion" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Codigo</th>
+                                        <th>Fecha </th>
                                         <th>Nombre</th>
                                         <th>Servicio</th>
                                         <th>Dirrecion</th>
-                                        <th>Telefono</th>
-                                        <th>Nombre Factura</th>
-                                        <th>NIT/CI</th>
+                                        <th>Contacto</th>
+                                        <th>Contacto Cel</th>
+                                        <th>Estado</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -65,13 +64,13 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Codigo</th>
+                                        <th>Fecha </th>
                                         <th>Nombre</th>
                                         <th>Servicio</th>
                                         <th>Dirrecion</th>
-                                        <th>Telefono</th>
-                                        <th>Nombre Factura</th>
-                                        <th>NIT/CI</th>
+                                        <th>Contacto</th>
+                                        <th>Contacto Cel</th>
+                                        <th>Estado</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </tfoot>
@@ -119,54 +118,15 @@
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/emodal@1.2.69/dist/eModal.min.js"></script>
-    <script>
-        var table = $('#datatable_cotizacion').DataTable({
-            processing: true,
-            serverSide: true,
-            responsive: true,
-            ajax: `${base_url}/cotizacion/lista?orden=${$('#ordenar').val()}`, //
-            order: [],
-            columns: [{
-                    data: "nombre_servicio",
-                    name: "nombre_servicio"
-                },
-                {
-                    data: "nombre_servicio",
-                    name: "nombre_servicio"
-                },
-                {
-                    data: "nombre_servicio",
-                    name: "nombre_servicio"
-                },
-                {
-                    data: "nombre_servicio",
-                    name: "nombre_servicio"
-                },
-                {
-                    data: "nombre_servicio",
-                    name: "nombre_servicio"
-                },
-                {
-                    data: "nombre_servicio",
-                    name: "nombre_servicio"
-                },
-                {
-                    data: "nombre_servicio",
-                    name: "nombre_servicio"
-                },
-                {
-                    data: "acciones",
-                    name: "acciones"
-                },
-            ],
-            language: {
-                url: "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-            }
-        });
-    </script>
+    {{-- momentjs --}}
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+    {{-- cotizaciones --}}
+    <script src="{{ asset('panel/cotizacion/list.js') }}"></script>
     <script src="{{ asset('panel/cotizacion/modalCotizacion/create.js') }}"></script>
     <script src="{{ asset('panel/cotizacion/modalCotizacion/store.js') }}"></script>
     <script src="{{ asset('panel/cotizacion/modalCotizacion/edit.js') }}"></script>
     <script src="{{ asset('panel/cotizacion/modalCotizacion/update.js') }}"></script>
     <script src="{{ asset('panel/cotizacion/modalCotizacion/delete.js') }}"></script>
+    <script src="{{ asset('panel/cotizacion/modalCotizacion/table.js') }}"></script>
 @endpush

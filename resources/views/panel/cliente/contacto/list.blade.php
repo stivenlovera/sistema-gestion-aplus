@@ -42,7 +42,6 @@
                                 <thead>
                                     <tr>
                                         <th>Nombres</th>
-                                        <th>Apellidos</th>
                                         <th>Celular</th>
                                         <th>Email</th>
                                         <th>Cliente</th>
@@ -55,7 +54,6 @@
                                 <tfoot>
                                     <tr>
                                         <th>Nombres</th>
-                                        <th>Apellidos</th>
                                         <th>Celular</th>
                                         <th>Email</th>
                                         <th>Cliente</th>
@@ -88,7 +86,7 @@
     </section>
 
     <!-- Main content -->
-    <x-.cliente.modal-cliente />
+    <x-.contacto.modal-contacto />
 @endsection
 @push('java-script')
     <!-- DataTables  & Plugins -->
@@ -123,10 +121,6 @@
                     name: "nombre"
                 },
                 {
-                    data: "apellido",
-                    name: "apellido"
-                },
-                {
                     data: "celular",
                     name: "celular"
                 },
@@ -136,8 +130,8 @@
                 },
                
                 {
-                    data: 'Cliente',
-                    name: 'Cliente'
+                    data: 'nombre_cliente',
+                    name: 'nombre_cliente'
                 },
                 {
                     data: "acciones",

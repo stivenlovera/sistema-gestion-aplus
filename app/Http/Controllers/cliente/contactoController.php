@@ -28,6 +28,11 @@ class contactoController extends Controller
     public function datatable()
     {
         $contactos = DB::table('contacto')
+            ->select(
+                'contacto.*',
+                'cliente.nombre as nombre_cliente'
+            )
+            ->join('cliente', 'cliente.id', 'contacto.cliente_id')
         //filtrando
         /*  ->when(!empty(request()->orden), function ($query) {
         switch (request()->orden) {
@@ -79,7 +84,7 @@ class contactoController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        //dd($request->all());
         $rules = array(
             'nombre' => 'required',
             'descripcion' => 'nullable',

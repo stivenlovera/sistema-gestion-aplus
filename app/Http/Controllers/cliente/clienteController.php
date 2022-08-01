@@ -125,7 +125,7 @@ class clienteController extends Controller
         if ($cliente) {
             return response()->json([
                 'status' => 'ok',
-                'message' => 'Resgistrado correctamente',
+                'message' => 'Registrado correctamente',
             ], 200);
         } else {
             return response()->json([
@@ -174,7 +174,7 @@ class clienteController extends Controller
                     'cliente' => $cliente,
                     'contactos' => $contactos,
                 ],
-                'message' => 'Resgistrado correctamente',
+                'message' => 'Registrado correctamente',
             ], 200);
         } else {
             return response()->json([
