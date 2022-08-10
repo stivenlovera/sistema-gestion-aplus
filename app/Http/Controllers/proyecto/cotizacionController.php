@@ -212,7 +212,7 @@ class cotizacionController extends Controller
             'uso_porcentaje_a' => $request->uso_porcentaje_a,
             'uso_porcentaje_b' => $request->uso_porcentaje_b,
             'uso_porcentaje_c' => $request->uso_porcentaje_c,
-            'estado_cotizacion' => 'No aprobado',
+            'cotizacion_estado_id' => '1',
         ]);
         foreach ($request->item_cantidad as $key => $cantidad) {
             /*  if ($request->item_id[$key] == null) {
@@ -355,8 +355,7 @@ class cotizacionController extends Controller
         if ($cotizacion) {
             return response()->json([
                 'status' => 'ok',
-                'data' => $cotizacion,
-                'message' => 'informacion de cotizacion',
+                'message' => 'Estado',
             ], 200);
         } else {
             return response()->json([

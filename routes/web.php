@@ -47,7 +47,7 @@ Route::middleware('auth')->prefix('cotizacion')->group(function () {
 });
 Route::middleware('auth')->prefix('proyecto')->group(function () {
     Route::get('/', 'proyecto\proyectoController@index')->name('proyecto');
-    Route::get('/lista', 'proyecto\proyectoController@datatable')->name('proyecto.lista');
+    Route::get('/data-table', 'proyecto\proyectoController@datatable')->name('proyecto.lista');
     Route::post('/store', 'proyecto\proyectoController@store')->name('proyecto.store');
     Route::get('/edit/{id}', 'proyecto\proyectoController@edit')->name('proyecto.edit');
     Route::put('/update/{id}', 'proyecto\proyectoController@update')->name('proyecto.lista');
@@ -56,11 +56,23 @@ Route::middleware('auth')->prefix('proyecto')->group(function () {
 
 Route::middleware('auth')->prefix('servicio')->group(function () {
     Route::get('/', 'proyecto\servicioController@index')->name('servicio');
-    Route::get('/lista', 'proyecto\servicioController@datatable')->name('servicio.lista');
+    Route::get('/data-table', 'proyecto\servicioController@datatable')->name('servicio.lista');
     Route::post('/store', 'proyecto\servicioController@store')->name('servicio.store');
     Route::get('/edit/{id}', 'proyecto\servicioController@edit')->name('servicio.edit');
     Route::put('/update/{id}', 'proyecto\servicioController@update')->name('servicio.lista');
     Route::delete('/delete/{id}', 'proyecto\servicioController@destroy')->name('servicio.lista');
+});
+
+Route::middleware('auth')->prefix('actividad')->group(function () {
+    Route::post('/iniciar', 'actividad\actividadController@iniciar')->name('actividad.iniciar');
+    Route::post('/pausar', 'actividad\actividadController@pausar')->name('actividad.pausar');
+    Route::post('/parar', 'actividad\actividadController@parar')->name('actividad.parar');
+    Route::get('/data-table', 'actividad\actividadController@datatable')->name('actividad.lista');
+    Route::post('/store', 'actividad\actividadController@store')->name('actividad.store');
+    Route::get('/edit/{id}', 'actividad\actividadController@edit')->name('actividad.edit');
+    Route::put('/update/{id}', 'actividad\actividadController@update')->name('actividad.lista');
+    Route::delete('/delete/{id}', 'actividad\actividadController@destroy')->name('actividad.lista');
+    Route::get('/{id}', 'actividad\actividadController@index')->name('actividad');
 });
 
 Route::middleware('auth')->prefix('contacto')->group(function () {

@@ -114,7 +114,16 @@ CREATE TABLE
         uso_porcentaje_b DECIMAL (10, 2) NOT NULL,
         uso_porcentaje_c DECIMAL (10, 2) NOT NULL,
         fecha_registro datetime NOT NULL,
-        estado_cotizacion VARCHAR(350) NOT NULL
+        cotizacion_estado_id int NOT NULL
+    );
+
+DROP TABLE IF EXISTS cotizacion_estado;
+
+CREATE TABLE
+    cotizacion_estado(
+        id int AUTO_INCREMENT primary key,
+        nombre VARCHAR(350) NOT NULL,
+        descripcion VARCHAR(350) NULL
     );
 
 DROP TABLE IF EXISTS material_cotizacion;
@@ -150,21 +159,44 @@ CREATE TABLE
     proyecto(
         id int AUTO_INCREMENT primary key,
         nombre VARCHAR(350) NULL,
-        cotizacion_id int NOT NULL
-    );
-
-DROP TABLE IF EXISTS actividad;
-
-CREATE TABLE
-    actividad(
-        id int AUTO_INCREMENT primary key,
-        nombre VARCHAR(350) NULL,
-        proyecto_id int NOT NULL,
+        cotizacion_id int NULL,
         fecha_inicio DATETIME NOT NULL,
         fecha_fin DATETIME NOT NULL,
-        fecha_registro DATETIME NOT NULL,
+        dias_estimados int NOT NULL,
         horas_total DECIMAL (10, 1) NOT NULL,
         dias_total DECIMAL (10, 1) NOT NULL,
+        proyecto_estado_id int NOT NULL
+    );
+
+DROP TABLE IF EXISTS proyecto_estado;
+
+CREATE TABLE
+    proyecto_estado(
+        id int AUTO_INCREMENT primary key,
+        nombre VARCHAR(350) NOT NULL,
+        descripcion VARCHAR(350) NULL
+    );
+
+CREATE TABLE
+    personal_proyecto(
+        id int AUTO_INCREMENT primary key,
+        proyecto_id int NULL,
+        persona_id int NULL
+    );
+
+DROP TABLE IF EXISTS actividad_personal;
+
+CREATE TABLE
+    actividad_personal(
+        id int AUTO_INCREMENT primary key,
+        nombre VARCHAR(350) NULL,
+        descripcion text NULL,
+        proyecto_id int NOT NULL,
+        persona_id int  NULL,
+        horas_usadas DECIMAL (10, 1) NULL,
+        horas_estimadas  DECIMAL (10, 1) NULL,
+        fecha_registro DATE NOT NULL,
+        dias DECIMAL (10, 1) NOT NULL,
         estado_actividad VARCHAR(350) NULL
     );
 
@@ -174,9 +206,10 @@ CREATE TABLE
     tareas(
         id int AUTO_INCREMENT primary key,
         descripcion VARCHAR(350) NULL,
-        actividad_id int NOT NULL,
-        fecha_inicio DATETIME NOT NULL,
-        fecha_fin DATETIME NOT NULL
+        actividad_personal_id int NOT NULL,
+        fecha_inicio DATETIME NULL,
+        fecha_fin DATETIME NULL,
+        horas DECIMAL (10, 1)  NULL
     );
 
 DROP TABLE IF EXISTS porcentajes;
@@ -243,3 +276,50 @@ INSERT INTO `porcentajes`(`nombre`,`porcentaje`) VALUES ('a','13');
 INSERT INTO `porcentajes`(`nombre`,`porcentaje`) VALUES ('b','3');
 
 INSERT INTO `porcentajes`(`nombre`,`porcentaje`) VALUES ('c','1.5');
+
+/*estado proyecto*/
+
+INSERT INTO
+    `cotizacion_estado`(`nombre`, `descripcion`)
+VALUES ('Pediente', '');
+
+INSERT INTO
+    `cotizacion_estado`(`nombre`, `descripcion`)
+VALUES ('Aprobado', '');
+
+INSERT INTO
+    `proyecto_estado`(`nombre`, `descripcion`)
+VALUES (
+        'en curso',
+        'proyecto en curso'
+    );
+
+INSERT INTO
+    `proyecto_estado`(`nombre`, `descripcion`)
+VALUES ('finalizado', '');
+
+INSERT INTO
+    `proyecto_estado`(`nombre`, `descripcion`)
+VALUES ('observacion', '');
+
+INSERT INTO
+    `proyecto`(
+        `nombre`,
+        `cotizacion_id`,
+        `fecha_inicio`,
+        `fecha_fin`,
+        `dias_estimados`,
+        `horas_total`,
+        `dias_total`,
+        `proyecto_estado_id`
+    )
+VALUES (
+        'modulo de notas',
+        0,
+        '2022-08-05',
+        '2022-08-09',
+        '4',
+        '0.00',
+        '0.00',
+        1
+    );

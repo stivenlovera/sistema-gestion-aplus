@@ -75,6 +75,12 @@
                                 <p>Servicios</p>
                             </a>
                         </li>
+                        {{-- <li class="nav-item">
+                            <a href="{{ route('actividad') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Actividades</p>
+                            </a>
+                        </li> --}}
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -117,7 +123,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
@@ -127,19 +133,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/forms/general.html" class="nav-link">
+                            <a href="{{ route('actividad') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Actividades</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/forms/general.html" class="nav-link">
+                            <a href="{{ route('actividad') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Tareas</p>
+                                <p>Historial</p>
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="nav-header">CONFIGURACION</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -164,7 +170,7 @@
                         </li>
                     </ul>
                 </li>
-              
+
                 <li class="nav-header">MISELANEOS</li>
                 <li class="nav-item">
                     <a href="iframe.html" class="nav-link">
